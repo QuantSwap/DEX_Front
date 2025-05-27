@@ -1,0 +1,838 @@
+/* 1. Базовые контейнеры */
+.dashboard-container {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1rem; /* Увеличиваем отступы на мобильных */
+  flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+  .dashboard-content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* 2. Адаптивная основная сетка */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* Уменьшаем gap на мобильных */
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+}
+
+/* Баланс + PnL */
+.balance-pnl-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* Уменьшаем gap на мобильных */
+}
+
+@media (min-width: 768px) {
+  .balance-pnl-grid {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .balance-pnl-grid {
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* 3. Карточки и таблицы */
+.card,
+.balance-card,
+.pnl-card,
+.trades-card,
+.pools-card,
+.activity-card {
+  background-color: #1f2937;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.6rem; /* Компактные отступы на мобильных */
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  border: 2px solid #374151;
+  margin: 0;
+  transition: transform 0.2s;
+  overflow: hidden; /* Предотвращаем выход контента */
+  word-wrap: break-word; /* Переносим длинные слова */
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 480px) {
+  .card,
+  .balance-card,
+  .pnl-card,
+  .trades-card,
+  .pools-card,
+  .activity-card {
+    padding: 1rem 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card,
+  .balance-card,
+  .pnl-card,
+  .trades-card,
+  .pools-card,
+  .activity-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.card:hover,
+.balance-card:hover,
+.pnl-card:hover,
+.trades-card:hover,
+.pools-card:hover,
+.activity-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Контейнер контента с возможностью скролла */
+.card-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 400px; /* Максимальная высота на мобильных */
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 768px) {
+  .card-content {
+    max-height: none; /* Убираем ограничение на больших экранах */
+  }
+}
+
+/* 4. Заголовки */
+.title {
+  font-size: 1.5rem; /* Уменьшаем на мобильных */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #38bdf8;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+}
+
+.card-title {
+  font-size: 1.1rem; /* Увеличиваем для мобильных */
+  font-weight: 600;
+  color: #06b6d4;
+}
+
+@media (min-width: 768px) {
+  .card-title {
+    font-size: 1.2rem;
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap; /* Позволяем перенос на мобильных */
+  gap: 0.5rem;
+}
+
+/* 5. Баланс: таблица токенов */
+.table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 300px; /* Ограничиваем высоту на мобильных */
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .table-container {
+    max-height: none; /* Убираем ограничение на больших экранах */
+  }
+}
+
+.table {
+  width: 100%;
+  font-size: 0.75rem; /* Еще мельче на мобильных */
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .table {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .table {
+    font-size: 1rem;
+  }
+}
+
+.table th, .table td {
+  padding: 0.4rem 0.15rem; /* Очень компактно на мобильных */
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 480px) {
+  .table th, .table td {
+    padding: 0.5rem 0.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .table th, .table td {
+    padding: 0.6rem 0.5rem;
+  }
+}
+
+.table th {
+  color: #9ca3af;
+  font-weight: 500;
+  background: #1f2937; /* Фиксированный фон для заголовков */
+  font-size: 0.7rem; /* Очень мелкий на мобильных */
+  position: sticky;
+  top: 0; /* Закрепляем заголовки при скролле */
+  z-index: 2;
+}
+
+@media (min-width: 480px) {
+  .table th {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .table th {
+    font-size: 1rem;
+    position: static; /* Убираем закрепление на больших экранах */
+  }
+}
+
+.table tr {
+  border-top: 1px solid #2d3748;
+}
+
+.table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.02);
+}
+
+.table tbody tr:hover {
+  background: #283346;
+}
+
+.table tfoot td {
+  font-weight: 600;
+  border-top: 2px solid #374151;
+  background: #1f2937; /* Фиксированный фон для футера */
+  position: sticky;
+  bottom: 0; /* Закрепляем футер внизу */
+  z-index: 2;
+}
+
+.token-logo-img {
+  width: 1rem; /* Еще меньше на мобильных */
+  height: 1rem;
+  border-radius: 9999px;
+  margin-right: 0.2rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) {
+  .token-logo-img {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .token-logo-img {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* 6. PnL карточка */
+.pnl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem; /* Минимальный gap на мобильных */
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 480px) {
+  .pnl-grid {
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .pnl-grid {
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.pnl-item {
+  background: #202e44;
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.3rem; /* Очень компактно на мобильных */
+  text-align: center;
+  border: 1.5px solid #374151;
+  min-height: 0; /* Убираем минимальную высоту */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .pnl-item {
+    padding: 0.5rem 0.4rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .pnl-item {
+    padding: 0.75rem;
+  }
+}
+
+.pnl-label {
+  font-size: 0.7rem; /* Очень мелкий на мобильных */
+  color: #9ca3af;
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 480px) {
+  .pnl-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .pnl-label {
+    font-size: 0.93rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.pnl-value {
+  font-size: 0.85rem; /* Компактно на мобильных */
+  font-weight: 700;
+  line-height: 1.2;
+  word-break: break-all; /* Переносим длинные числа */
+}
+
+@media (min-width: 480px) {
+  .pnl-value {
+    font-size: 1rem;
+    word-break: normal;
+  }
+}
+
+@media (min-width: 640px) {
+  .pnl-value {
+    font-size: 1.13rem;
+  }
+}
+
+.text-green-400, .stat-positive {
+  color: #22d3ee !important;
+}
+
+.text-red-400, .stat-negative {
+  color: #f87171 !important;
+}
+
+.pnl-chart {
+  margin-top: 0.75rem;
+  height: 4rem; /* Очень компактно на мобильных */
+  background: #141c29;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 0.8rem;
+  border: 1.5px solid #374151;
+}
+
+@media (min-width: 480px) {
+  .pnl-chart {
+    height: 5rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .pnl-chart {
+    height: 7rem;
+    font-size: 1rem;
+  }
+}
+
+/* 7. Таблицы Recent Transactions и Pools */
+.trades-pools-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* Уменьшаем gap на мобильных */
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .trades-pools-grid {
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .trades-pools-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Контейнер для таблиц с транзакциями и пулами */
+.trades-table-container,
+.pools-table-container {
+  overflow: auto;
+  max-height: 250px; /* Ограничиваем высоту на мобильных */
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .trades-table-container,
+  .pools-table-container {
+    max-height: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .trades-table-container,
+  .pools-table-container {
+    max-height: none; /* Убираем ограничение на больших экранах */
+  }
+}
+
+.empty-text {
+  text-align: center;
+  color: #9ca3af;
+  padding: 1rem 0; /* Уменьшаем padding на мобильных */
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .empty-text {
+    padding: 1.2rem 0;
+    font-size: 1rem;
+  }
+}
+
+/* 8. Активности (Staking, Competition, Airdrop) */
+.activity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .activity-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Выравниваем по верху */
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+  flex-shrink: 0; /* Заголовок не сжимается */
+}
+
+.activity-title {
+  font-size: 0.9rem; /* Меньше на мобильных */
+  font-weight: 600;
+  color: #38bdf8;
+  line-height: 1.3;
+  flex: 1; /* Занимает доступное место */
+}
+
+@media (min-width: 480px) {
+  .activity-title {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .activity-title {
+    font-size: 1.08rem;
+  }
+}
+
+.activity-count {
+  background: #222f44;
+  font-size: 0.7rem; /* Очень мелкий на мобильных */
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  border: 1.5px solid #374151;
+  white-space: nowrap;
+  flex-shrink: 0; /* Не сжимается */
+}
+
+@media (min-width: 480px) {
+  .activity-count {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .activity-count {
+    font-size: 0.88rem;
+    padding: 0.28rem 0.7rem;
+  }
+}
+
+/* Контейнер контента активности с возможностью скролла */
+.activity-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 200px; /* Ограничиваем высоту на мобильных */
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .activity-content {
+    max-height: none; /* Убираем ограничение на больших экранах */
+  }
+}
+
+.activity-text {
+  color: #9ca3af;
+  font-size: 0.8rem; /* Меньше на мобильных */
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  flex-shrink: 0; /* Текст не сжимается */
+}
+
+@media (min-width: 480px) {
+  .activity-text {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .activity-text {
+    font-size: 0.98rem;
+  }
+}
+
+.activity-button {
+  background: linear-gradient(90deg, #16a34a 0%, #15803d 100%);
+  padding: 0.5rem 0.75rem; /* Компактнее на мобильных */
+  border-radius: 0.4rem;
+  font-weight: 500;
+  font-size: 0.85rem; /* Меньше размер шрифта */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: auto; /* Прижимаем к низу */
+  width: 100%;
+  min-height: 36px; /* Минимальная высота для нажатия */
+  flex-shrink: 0; /* Кнопка не сжимается */
+}
+
+@media (min-width: 480px) {
+  .activity-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    min-height: 40px;
+  }
+}
+
+@media (min-width: 640px) {
+  .activity-button {
+    width: auto;
+    padding: 0.7rem 1.2rem;
+    font-size: 1.05rem;
+    min-height: 44px;
+  }
+}
+
+.activity-button:hover {
+  background: linear-gradient(90deg, #15803d 0%, #166534 100%);
+}
+
+/* Делаем карточки активностей одинаковой высоты */
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 280px; /* Ограничиваем общую высоту карточки на мобильных */
+}
+
+@media (min-width: 768px) {
+  .activity-card {
+    max-height: none; /* Убираем ограничение на больших экранах */
+  }
+}
+
+/* 9. Ссылки и hover */
+.card-link {
+  color: #34d399;
+  font-size: 0.9rem; /* Уменьшаем на мобильных */
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+@media (min-width: 768px) {
+  .card-link {
+    font-size: 1rem;
+  }
+}
+
+.card-link:hover {
+  color: #2dd4bf;
+}
+
+/* 10. Кнопка "Connect Wallet" и загрузка */
+.connect-button {
+  background: linear-gradient(90deg, #16a34a 0%, #15803d 100%);
+  padding: 0.65rem 1.25rem; /* Уменьшаем padding на мобильных */
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem; /* Уменьшаем размер шрифта */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s;
+  width: 100%; /* На всю ширину на мобильных */
+}
+
+@media (min-width: 640px) {
+  .connect-button {
+    width: auto;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.08rem;
+  }
+}
+
+.connect-button:hover {
+  background: linear-gradient(90deg, #15803d 0%, #166534 100%);
+}
+
+/* 11. Loader */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+  border-radius: 9999px;
+  width: 2.5rem; /* Уменьшаем на мобильных */
+  height: 2.5rem;
+  border-top: 3px solid #10b981;
+  border-bottom: 3px solid #10b981;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .loading-spinner {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 12. Мелкие UI-улучшения */
+::-webkit-scrollbar {
+  width: 0.3em; /* Очень тонкий на мобильных */
+  background: #111a28;
+}
+
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0.5em;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+/* Стили для скроллбара внутри карточек */
+.table-container::-webkit-scrollbar,
+.card-content::-webkit-scrollbar,
+.activity-content::-webkit-scrollbar,
+.trades-table-container::-webkit-scrollbar,
+.pools-table-container::-webkit-scrollbar {
+  width: 0.25em;
+  height: 0.25em;
+  background: rgba(55, 65, 81, 0.3);
+}
+
+.table-container::-webkit-scrollbar-thumb,
+.card-content::-webkit-scrollbar-thumb,
+.activity-content::-webkit-scrollbar-thumb,
+.trades-table-container::-webkit-scrollbar-thumb,
+.pools-table-container::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.7);
+  border-radius: 9999px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover,
+.card-content::-webkit-scrollbar-thumb:hover,
+.activity-content::-webkit-scrollbar-thumb:hover,
+.trades-table-container::-webkit-scrollbar-thumb:hover,
+.pools-table-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.9);
+}
+
+/* 13. Дополнительные мобильные улучшения */
+@media (max-width: 767px) {
+  /* Увеличиваем область нажатия для кнопок */
+  .activity-button,
+  .connect-button {
+    min-height: 44px; /* Минимальная высота для удобного нажатия */
+  }
+  
+  /* Ограничиваем общую ширину контента */
+  .dashboard-content {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Убеждаемся, что все карточки помещаются */
+  .card,
+  .balance-card,
+  .pnl-card,
+  .trades-card,
+  .pools-card,
+  .activity-card {
+    min-width: 0; /* Позволяем сжиматься */
+    box-sizing: border-box;
+  }
+  
+  /* Принудительно ограничиваем ширину текста */
+  .pnl-value,
+  .activity-title,
+  .card-title {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Компактные заголовки карточек */
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  
+  /* Убираем лишние отступы */
+  .dashboard-grid,
+  .balance-pnl-grid,
+  .trades-pools-grid {
+    gap: 1rem;
+  }
+}
+
+/* Экстра-мелкие экраны (менее 360px) */
+@media (max-width: 359px) {
+  .dashboard-content {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .card,
+  .balance-card,
+  .pnl-card,
+  .trades-card,
+  .pools-card,
+  .activity-card {
+    padding: 0.5rem 0.4rem;
+  }
+  
+  .pnl-grid {
+    gap: 0.25rem;
+  }
+  
+  .pnl-item {
+    padding: 0.3rem 0.2rem;
+  }
+  
+  .pnl-value {
+    font-size: 0.75rem;
+  }
+  
+  .pnl-label {
+    font-size: 0.65rem;
+  }
+}

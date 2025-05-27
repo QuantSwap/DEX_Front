@@ -1,0 +1,125 @@
+.header-root {
+  background: linear-gradient(to right, #071a1e, #153832 60%, #0c2820 100%);
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 24px 0 #01351f80;
+  border-bottom: 1px solid rgba(100,255,218,0.07);
+}
+
+.header-title {
+  position: relative;
+  padding: 2px 12px 2px 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  min-width: 140px;
+}
+
+.quantum-title {
+  background: linear-gradient(90deg, #64ffda, #48b8d0, #2979ff, #5e35b1, #2979ff, #48b8d0, #64ffda);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGradient 6s ease infinite;
+  text-shadow: 0 0 5px rgba(100,255,218,0.18), 0 0 10px rgba(100,255,218,0.09);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-size: 1.11rem;
+  line-height: 1.4;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes titleGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.title-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(0,30,60,0.18),rgba(0,60,40,0.12));
+  border-radius: 6px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+.quantum-spark {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #64ffda;
+  filter: blur(0.7px);
+  opacity: 0;
+  z-index: 5;
+  animation: sparkle 1.4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  0%   { opacity: 0; transform: scale(0); }
+  40%  { opacity: 0.65; transform: scale(1.4); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+.header-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: auto;
+}
+
+@media (min-width: 600px) {
+  .header-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.05rem;
+    min-width: 195px;
+  }
+}
+
+/* WalletConnect кнопка (если нужен min-width) */
+.wallet-btn {
+  min-width: 102px;
+}
+
+/* Переключатель языка - КОМПАКТНЫЙ! */
+.lang-switcher {
+  display: flex;
+  gap: 0.22rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 7px;
+  padding: 0.12rem 0.22rem;
+  box-shadow: 0 0 5px rgba(100,255,218,0.09);
+}
+
+.lang-btn {
+  cursor: pointer;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #a0f0d7;
+  background: transparent;
+  border: 1.5px solid transparent;
+  font-size: 0.5rem;
+  transition: all 0.18s;
+}
+
+.lang-btn:hover {
+  background: rgba(100,255,218,0.13);
+  color: #85f9f9;
+}
+
+.lang-btn.active {
+  background: #64ffda;
+  color: #003333;
+  border-color: #64ffda;
+  box-shadow: 0 0 6px #64ffda66;
+}
