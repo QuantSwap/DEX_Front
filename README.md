@@ -77,6 +77,6 @@ The backend and smart contracts are under active development and will be publish
 - [Twitter](https://x.com/QuantSwap)
 
 ---
-![Quantum Swap Dashboard Screenshot](public/screenshots/dashboard-demo.png)
+![Quantum Swap Dashboard Screenshot](public/screenshots/post.png)
 
 **Thank you for your interest in Quantum Swap! Stay tuned for updates and the official launch.**
