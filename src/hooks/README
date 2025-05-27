@@ -1,0 +1,15 @@
+# Hooks — Demo Version
+
+This directory contains only a minimal set of custom React hooks required for this public demo version of the Quantum Swap DEX frontend.
+
+**Note:**
+- In the full production version, we utilize a wide range of proprietary and advanced hooks tailored for our exchange platform and its unique features.
+- For demo purposes and intellectual property protection, most hooks have been removed from this repository, especially those unrelated to UI or that could be used outside our DEX context.
+- The hooks presented here are either basic, project-specific, or required for UI demonstration only.
+
+If you represent a serious company, investor, or grant provider and wish to review the full set of custom hooks and advanced logic, please contact us officially.  
+Access may be granted under review and NDA.
+
+---
+
+Thank you for understanding!
