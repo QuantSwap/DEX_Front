@@ -1,0 +1,18 @@
+# Utils — Demo Version
+
+This folder contains only the structure and interface definitions for utility functions and services used in the Quantum Swap DEX frontend.
+
+**Please note:**  
+All files here are stubs or mock implementations.  
+The real business logic, backend integrations, and core algorithms are **not included** in this public demo repository for security and intellectual property reasons.
+
+If you represent a serious company, investor, or grant committee and need access to the full implementation, please contact us with an official request.  
+Access to the full source code may be provided upon review and under an NDA.
+
+---
+
+**Summary:**
+- This folder demonstrates only the structure and sample usage.
+- All real integrations and sensitive logic are kept private.
+
+Thank you for understanding!
