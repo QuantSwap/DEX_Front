@@ -1,5 +1,7 @@
 # Quantum Swap — Multifunctional DEX on TON
 
+![Quantum Swap Dashboard Screenshot](public/screenshots/post.png)
+
 **Quantum Swap** is an innovative decentralized platform that combines the powerful features of centralized exchanges (CEX) with the privacy and convenience of Web3. All platform functionality is available without KYC — just connect your TON wallet (Tonkeeper, OpenMask, and others).
 
 ---
@@ -77,6 +79,6 @@ The backend and smart contracts are under active development and will be publish
 - [Twitter](https://x.com/QuantSwap)
 
 ---
-![Quantum Swap Dashboard Screenshot](public/screenshots/post.png)
+
 
 **Thank you for your interest in Quantum Swap! Stay tuned for updates and the official launch.**
