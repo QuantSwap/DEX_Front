@@ -1,0 +1,15 @@
+# Components — Demo Version
+
+This folder contains a limited selection of React components required for the public demo version of the Quantum Swap DEX frontend.
+
+**Please note:**
+- Not all components used in the full product are included in this repository.
+- Many advanced, unique, or business-critical components have been intentionally omitted or replaced with simplified versions for security and intellectual property reasons.
+- Only essential and safe-to-share components are present here, primarily for user interface demonstration.
+
+If you represent a serious company, investor, or grant provider and wish to see the complete set of components and advanced implementations, please contact us with an official request.  
+Access to the full component library may be granted after review and under NDA.
+
+---
+
+Thank you for your understanding!
