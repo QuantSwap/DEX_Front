@@ -49,17 +49,17 @@ No real backend integrations, live blockchain operations, or business-critical a
 
 ## 🛠️ Roadmap Highlights
 
-- **2024 Q2:**  
+- **2025 Q2:**  
   - Core frontend demo and UI components
   - Mock integration with TON wallets and Telegram Mini App
-- **2024 Q3:**  
+- **2025 Q3:**  
   - Backend API launch (private beta)
   - Smart contracts for staking and pools (testnet phase)
-- **2024 Q4:**  
+- **2025 Q3:**  
   - Public testnet and smart contract audits
   - Full integration of trading, bots, and competitions
   - Initial mainnet deployment and public launch
-
+  - Soon Features
 ---
 
 ## Important!
@@ -77,6 +77,8 @@ The backend and smart contracts are under active development and will be publish
 - [Telegram (Dev)](https://t.me/Vahe_Ar)
 - [Telegram Channel](https://t.me/q_swap)
 - [Twitter](https://x.com/QuantSwap)
+- [Demo Link](https://qswap.fi/)
+
 
 ---
 
